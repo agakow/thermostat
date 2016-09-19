@@ -4,49 +4,53 @@ function Thermostat() {
   this.MIN_TEMPERATURE = 10;
   this.MAX_TEMPERATURE_POWERSAVERON = 25;
   this.MAX_TEMPERATURE_POWERSAVEROFF = 32;
-  this.MAX_TEMPERATURE = this.MAX_TEMPERATURE_POWERSAVERON
+  this.MAX_TEMPERATURE = this.MAX_TEMPERATURE_POWERSAVERON;
   this.MEDIUM_ENERGY_MIN = 18;
   this.powerSaving = true;
 }
 
 Thermostat.prototype.currentTemperature = function() {
-  return this.temperature
-}
+  return this.temperature;
+};
 
 Thermostat.prototype.up = function(){
   if(this.temperature === this.MAX_TEMPERATURE) {
     throw new Error('Maximum temperature reached');
   }
   this.temperature++;
-}
+};
 
 Thermostat.prototype.down = function(){
   if(this.temperature === this.MIN_TEMPERATURE) {
     throw new Error('Minimum temperature reached');
   }
   this.temperature--;
-}
+};
 
 Thermostat.prototype.powerSavingOff = function(){
     this.MAX_TEMPERATURE = this.MAX_TEMPERATURE_POWERSAVEROFF;
-    this.powerSaving = false
-}
+    this.powerSaving = false;
+};
 
 Thermostat.prototype.powerSavingOn = function(){
     this.MAX_TEMPERATURE = this.MAX_TEMPERATURE_POWERSAVERON;
-    this.powerSaving = true
-}
+    this.powerSaving = true;
+    if(this.temperature > this.MAX_TEMPERATURE_POWERSAVERON) {
+      this.temperature = this.MAX_TEMPERATURE_POWERSAVERON;
+    }
+    
+};
 
 Thermostat.prototype.reset = function(){
-  this.temperature = this.DEFAULT_TEMPERATURE
-}
+  this.temperature = this.DEFAULT_TEMPERATURE;
+};
 
 Thermostat.prototype.energyUsage = function(){
   if(this.temperature < this.MEDIUM_ENERGY_MIN) {
-    return this.colour = 'low-usage';
+    return 'low-usage';
   }
   if(this.temperature >= this.MEDIUM_ENERGY_MIN && this.temperature <= this.MAX_TEMPERATURE_POWERSAVERON) {
-    return this.colour = 'medium-usage';
+    return 'medium-usage';
   }
-    return this.colour = 'high-usage';
-}
+    return 'high-usage';
+};

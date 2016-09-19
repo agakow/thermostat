@@ -18,32 +18,32 @@ describe("Thermostat", function() {
   });
   it('has a minimum temperature of 10 degrees', function(){
     for(i = 0; i < 10; i++) {thermostat.down();}
-    expect(function(){ thermostat.down(); }).toThrowError('Minimum temperature reached')
-  })
+    expect(function(){ thermostat.down(); }).toThrowError('Minimum temperature reached');
+  });
 
   describe ('Power saving mode', function(){
 
     it('power saving mode is on by default', function() {
-      expect(thermostat.powersaving).toBeTruthy
+      expect(thermostat.powerSaving).toBeTruthy();
       expect(thermostat.MAX_TEMPERATURE).toEqual(25);
-    })
+    });
 
     it('If power saving mode is on, the maximum temperature is 25 degrees',function(){
       thermostat.powerSavingOn();
       for(i = 0; i < 5; i++) {thermostat.up();}
-      expect(function(){ thermostat.up(); }).toThrowError('Maximum temperature reached')
+      expect(function(){ thermostat.up(); }).toThrowError('Maximum temperature reached');
     });
 
     it('If power saving mode is off, the maximum temperature is 32 degrees',function(){
       thermostat.powerSavingOff();
       for(i = 0; i < 12; i++) {thermostat.up();}
-      expect(function(){ thermostat.up(); }).toThrowError('Maximum temperature reached')
+      expect(function(){ thermostat.up(); }).toThrowError('Maximum temperature reached');
     });
   });
 
   describe ('reset button', function(){
     it('resets the temperature to 20 degrees', function() {
-      thermostat.up()
+      thermostat.up();
       thermostat.reset();
       expect(thermostat.temperature).toEqual(20);
     });
@@ -52,18 +52,17 @@ describe("Thermostat", function() {
   describe ('colours the display based on energy usage', function() {
     it('shows green when temperature is below 18 degrees', function() {
       for(i = 0; i < 4; i++) {thermostat.down();}
-      thermostat.energyUsage()
-      expect(thermostat.colour).toEqual('low-usage')
-    })
+      expect(thermostat.energyUsage()).toEqual('low-usage');
+    });
+
     it('shows yellow when temperature is below 25 degrees', function() {
-      thermostat.energyUsage()
-      expect(thermostat.colour).toEqual('medium-usage')
-    })
+      expect(thermostat.energyUsage()).toEqual('medium-usage');
+    });
+
     it('shows red when temperature is above 25 degrees', function() {
       thermostat.powerSavingOff();
       for(i = 0; i < 7; i++) {thermostat.up();}
-      thermostat.energyUsage()
-      expect(thermostat.colour).toEqual('high-usage')
-    })
-  })
+      expect(thermostat.energyUsage()).toEqual('high-usage');
+    });
+  });
 });

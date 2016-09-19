@@ -1,0 +1,106 @@
+.low-usage {
+  background-color: rgb(105, 201, 97);
+}
+
+.medium-usage {
+  background-color: rgb(254, 247, 95);
+}
+
+.high-usage {
+  background-color: rgb(245, 89, 89);
+}
+
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+p {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+select {
+  display: block;
+  margin: auto;
+}
+
+.control {
+  float: left;
+  width: 300px;
+  height: 400px;
+  margin: 15px;
+}
+
+.energyusage {
+  float: right;
+  width: 300px;
+  height: 400px;
+  margin: 15px;
+}
+
+.middle {
+  float: left;
+  width: 600px;
+  height: 400px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.filling {
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 100px;
+  background-color: red;
+  top:243px;
+  left:288px;
+}
+
+.filling-segment1 {
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 20px;
+  background-color: red;
+  top:243px;
+  left:288px;
+}
+
+.circle {
+	border-radius: 50%;
+  background-color: red;
+	width: 47px;
+	height: 47px;
+  top: 338px;
+  position: absolute;
+  left: 277px;
+}
+
+#box {
+  display: block;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  border: 4px solid black;
+  border-radius: 12px;
+}
+
+button {
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 12px;
+  padding: 10px 15px;
+}
+
+button:hover {
+    background-color: #4BD667;
+    color: white;
+}
+
+img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin: auto;
+}

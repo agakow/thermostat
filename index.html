@@ -2,26 +2,51 @@
 <html>
   <head>
     <title>Thermostat</title>
-    <link rel="stylesheet" type="text/css" href="public/style.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+      <link rel="stylesheet" type="text/css" href="css/thermometer.css">
+    <link rel="stylesheet" type="text/css" href="css/button.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   </head>
   <body id='body'>
     <section>
-      <h1>Current Temperature: <span id='current-temperature'></span></h1>
-      <select id="current-city">
-         <option value="london">London</option>
-         <option value="newyork">New York</option>
-         <option value="paris">Paris</option>
-         <option value="tokyo">Tokyo</option>
+        <h1>Current Temperature: <span id='temperature'></span>&#8451;</h1>
+        <select id="current-city">
+           <option value="london">London</option>
+           <option value="newyork">New York</option>
+           <option value="paris">Paris</option>
+           <option value="tokyo">Tokyo</option>
        </select>
+    <div class='control'>
+      <h1>Controller</h1>
       <p>
         <button id='temp-up'>+</button>
-        <button id='temp-down'>-</button>
-        <button id='temp-reset'>reset</button>
-        power saving mode is <span id='power-saving-status'>on</span>
-        <button id='powersaving-on'>PSM on</button>
-        <button id='powersaving-off'>PSM off</button>
+        <button id='temp-down'>-</button><br>
+        <br>
+        <button id='temp-reset'>reset</button><br>
+        <br>
+        Power Saving Mode:<br>
+        <br>
+        <div class="onoffswitch">
+          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="powersaving" checked>
+          <label class="onoffswitch-label" for="powersaving">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+          </label>
+        </div>
+        <!-- <button id='powersaving-on'>on</button>
+        <button id='powersaving-off'>off</button> -->
       </p>
-    </section>
+    </div>
+    <div class='middle'>
+          <div class='thermometer'></div>
+    </div>
+    <div class='energyusage'>
+      <h1>Energy Usage Indicator</h1>
+      <div id='box'></div>
+    </div>
+  </section>
+      <!-- <script src='src/colourgradient.js'></script> -->
       <script src='src/thermostat.js'></script>
       <script src="src/jquery-3.1.0.js"></script>
       <script src="src/interface.js"></script>
